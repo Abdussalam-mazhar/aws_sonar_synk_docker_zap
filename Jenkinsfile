@@ -19,7 +19,7 @@ pipeline {
 
 	stage('Build') { 
             steps { 
-               withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
+               withDockerRegistry([credentialsId: "Docker_cred", url: ""]) {
                  script{
                  app =  docker.build("hello-repository")
                  }
