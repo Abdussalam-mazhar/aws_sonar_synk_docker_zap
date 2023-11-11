@@ -30,7 +30,7 @@ pipeline {
 	stage('Push') {
             steps {
                 script{
-                    docker.withRegistry('132142301041.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:ecr-user') {
+                    docker.withRegistry('https://132142301041.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:ecr-user') {
                     app.push("latest")
                     }
                 }
