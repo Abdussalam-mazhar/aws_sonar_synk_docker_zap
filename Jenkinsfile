@@ -21,7 +21,7 @@ pipeline {
             steps { 
                withDockerRegistry([credentialsId: "Docker_cred", url: ""]) {
                  script{
-                 app =  docker.build("hello-repository")
+                 app =  docker.build("newworld")
                  }
                }
             }
@@ -30,7 +30,7 @@ pipeline {
 	stage('Push') {
             steps {
                 script{
-                    docker.withRegistry('132142301041.dkr.ecr.us-east-1.amazonaws.com/hello-repository', 'ecr:us-east-1:ecr-user') {
+                    docker.withRegistry('132142301041.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:ecr-user') {
                     app.push("latest")
                     }
                 }
