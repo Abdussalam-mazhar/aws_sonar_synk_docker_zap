@@ -21,7 +21,7 @@ pipeline {
             steps { 
                withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
                  script{
-                 app =  docker.build("asg")
+                 app =  docker.build("hello-repository")
                  }
                }
             }
@@ -30,7 +30,7 @@ pipeline {
 	stage('Push') {
             steps {
                 script{
-                    docker.withRegistry('https://145988340565.dkr.ecr.us-west-2.amazonaws.com', 'ecr:us-west-2:aws-credentials') {
+                    docker.withRegistry('132142301041.dkr.ecr.us-east-1.amazonaws.com/hello-repository', 'ecr:us-east-1:ecr-user') {
                     app.push("latest")
                     }
                 }
